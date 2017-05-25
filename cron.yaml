@@ -1,0 +1,10 @@
+cron:
+- description: Delete topics older than 1 month
+  url: /cron/delete-topics
+  schedule: every Sunday 03:00
+  timezone: Europe/Ljubljana
+
+- description: Delete comments older than 1 month
+  url: /cron/delete-comments
+  schedule: every Sunday 01:00
+  timezone: Europe/Ljubljana

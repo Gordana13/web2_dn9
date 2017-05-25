@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block naslov %}Glavna stran{% endblock %}
+
+{% block vsebina %}
+<div class="jumbotron">
+  <h1>Ninja Tech Forum</h1>
+
+  <p>Welcome to Ninja Tech Forum. Coming soon!</p>
+</div>
+
+<div>
+  <a href="/topic/add" class="btn btn-info">New Topic</a>
+  <a href="/user-comments" class="btn btn-success">View all your comments</a>
+  <br />
+  <br />
+
+  <table class="table">
+    <tr>
+      <th>Created</th>
+      <th>Title</th>
+      <th>Author Email</th>
+    </tr>
+    {% for topic in topics | sort(attribute="created", reverse=True) %}
+      <tr>
+          <td style="width: 20%">{{ topic.created.strftime("%H:%M %d.%m.%Y") }}</td>
+          <td style="width: 60%;">
+            <a href="/topic/show/{{ topic.key.id() }}">
+              {{ topic.title }}
+            </a>
+          </td>
+          <td style="width: 20%;">{{ topic.author_email }}</td>
+        </a>
+      </tr>
+    {% endfor %}
+  </table>
+</div>
+
+{% endblock %}

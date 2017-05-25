@@ -1,0 +1,1 @@
+c:\Python27\Scripts\nosetests.exe -v --with-gae --gae-lib-root="C:\Program Files (x86)\Google\google_appengine"

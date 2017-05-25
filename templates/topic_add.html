@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block naslov %}Adding a topic{% endblock %}
+
+{% block vsebina %}
+<div class="row">
+  <div class="col-lg-6 col-md-6">
+    <form method="post">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+
+      <div class="form-group">
+        <label>Title</label>
+        <input name="title" class="form-control" required>
+      </div>
+
+      <div class="form-group">
+        <label>Content</label>
+        <textarea name="text" class="form-control" rows="6" required></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block naslov %}Comments{% endblock %}
+
+{% block vsebina %}
+
+{% for comment in comments|sort(attribute='created') %}
+    {% for topic in topics %}
+        {% if topic.key.id() == comment.topic_id %}
+            {% if comment.author_email == user.email() %}
+                <h3>Topic: {{ topic.title }}</h3>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="panel panel-info">
+                            <div class="panel-heading" style="font-family: Georgia;">
+                                <h3 class="panel-title">{{ comment.author_email }}, {{ comment.created.strftime("%d.%m.%Y at %H:%M") }}</h3>
+                            </div>
+
+                            <div class="panel-body">
+                                <p>{{ comment.content }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+
+{% endblock %}
